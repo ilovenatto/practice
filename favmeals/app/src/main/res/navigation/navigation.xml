@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/searchMealFrag">
+    <fragment
+        android:id="@+id/searchMealFrag"
+        android:name="org.chenhome.favmeals.ui.search.SearchMealFrag"
+        android:label="search_meal_frag"
+        tools:layout="@layout/search_meal_frag" >
+        <action
+            android:id="@+id/action_searchMealFrag_to_favMealsFrag"
+            app:destination="@id/favMealsFrag" />
+        <action
+            android:id="@+id/action_searchMealFrag_to_viewMealFrag"
+            app:destination="@id/viewMealFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/favMealsFrag"
+        android:name="org.chenhome.favmeals.ui.fav.FavMealsFrag"
+        android:label="fav_meals_frag"
+        tools:layout="@layout/fav_meals_frag" >
+        <action
+            android:id="@+id/action_favMealsFrag_to_searchMealFrag"
+            app:destination="@id/searchMealFrag" />
+        <action
+            android:id="@+id/action_favMealsFrag_to_viewMealFrag"
+            app:destination="@id/viewMealFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMealFrag"
+        android:name="org.chenhome.favmeals.ViewMealFrag"
+        android:label="view_meal_fragment"
+        tools:layout="@layout/view_meal_fragment" >
+        <argument android:name="mealId"
+            app:argType="string" />
+        <argument
+            android:name="isRemote"
+            app:argType="boolean" />
+    </fragment>
+</navigation>
